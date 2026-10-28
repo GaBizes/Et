@@ -288,24 +288,13 @@
 
         .contact-prompt {
             font-weight: 700;
-            font-size: clamp(1.7rem, 6vw, 2.5rem);
-            line-height: 1.2;
-            margin: 24px 0 14px;
-            background: linear-gradient(90deg, #ff0000, #ff8c00, #ffe600, #00b050, #008cff, #8b2cff, #ff1493);
-            background-size: 400% auto;
+            font-size: 1.15rem;
+            margin: 20px 0 10px;
+            background: linear-gradient(90deg, #ff0055, #aa00ff, #ff0055);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: rainbowGradient 5s linear infinite, textWiggle 3s ease-in-out infinite;
-        }
-
-        .contact-followup {
-            display: none;
-            margin-top: 20px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .contact-followup.visible {
-            display: block;
+            animation: rainbowGradient 5s linear infinite;
         }
 
         .phone-number-box {
@@ -483,90 +472,154 @@
 </head>
 
 <body>
-    <div class="animated-bg-pattern" aria-hidden="true"></div>
-    <div class="floating-cloud cloud-1" aria-hidden="true"></div>
-    <div class="floating-cloud cloud-2" aria-hidden="true"></div>
-    <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-    <button class="hidden-sukuna" id="sukunaEgg" type="button" aria-label="Abrir a surpresa secreta" title="Toque para abrir a surpresa">
-        <img src="SukunaKitty.png.jpg" alt="">
-    </button>
+    <!-- Padrão animado do fundo -->
+    <div class="animated-bg-pattern"></div>
 
-    <main class="container" id="mainContainer">
-        <section class="screen active" id="screen1" aria-labelledby="welcomeTitle">
+    <!-- Nuvens decorativas flutuantes -->
+    <div class="floating-cloud cloud-1"></div>
+    <div class="floating-cloud cloud-2"></div>
+
+    <!-- Canvas para partículas de laços, corações e estrelas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Sukuna com Pijama Escondido -->
+    <div class="hidden-sukuna" id="sukunaEgg" title="Procure bem! O Sukuna de pijama está aqui...">
+        <img src="SukunaKitty.png.jpg" alt="Sukuna Kitty Pijama">
+    </div>
+
+    <!-- Container Principal -->
+    <div class="container" id="mainContainer">
+        
+        <!-- TELA 1: PRINCIPAL (YujiDog + Sukuna Escondido) -->
+        <div class="screen active" id="screen1">
             <div class="card">
-                <div class="card-bow" aria-hidden="true">🎀</div>
-                <h1 class="huge-rainbow-title" id="welcomeTitle">Mundo Fofo &amp; Secreto</h1>
+                
+                <svg class="card-bow" viewBox="0 0 100 80">
+                    <g filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.2))">
+                        <circle cx="50" cy="40" r="14" fill="#ff0033" />
+                        <path d="M 40 40 Q 10 15 15 40 Q 10 65 40 40 Z" fill="#ff4d6d" />
+                        <path d="M 40 40 Q 20 25 22 40 Q 20 55 40 40 Z" fill="#ff758f" />
+                        <path d="M 60 40 Q 90 15 85 40 Q 90 65 60 40 Z" fill="#ff4d6d" />
+                        <path d="M 60 40 Q 80 25 78 40 Q 80 55 60 40 Z" fill="#ff758f" />
+                        <path d="M 45 50 Q 30 75 20 70 Q 35 60 45 50 Z" fill="#c9184a" />
+                        <path d="M 55 50 Q 70 75 80 70 Q 65 60 55 50 Z" fill="#c9184a" />
+                    </g>
+                </svg>
+
                 <div class="dog-img-container">
-                    <img class="dog-img" src="YujiDog.png.png" alt="Um cachorrinho fofo">
+                    <img class="dog-img" src="YujiDog.png.png" alt="YujiDog">
                 </div>
-                <p class="animated-rainbow-text">Uma surpresa especial está esperando por você!</p>
-                <p>Encontre o Sukuna escondido e toque nele para continuar. ✨</p>
-                <p class="hint-badge">Dica: procure pelo gatinho no cantinho da tela 🎀</p>
-            </div>
-        </section>
 
-        <section class="screen" id="screen2" aria-labelledby="passwordTitle">
+                <div class="animated-rainbow-text">
+                    Ache a foto do Sukuna com pijama da hello Kitty para acessar 🎀✨
+                </div>
+
+                <div class="hint-badge">
+                    <i class="fa-solid fa-magnifying-glass"></i> Dica: Olhe ao redor da tela...
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TELA 2: ÁREA PROTEGIDA / SENHA -->
+        <div class="screen" id="screen2">
             <div class="card">
-                <div class="card-bow" aria-hidden="true">🎀</div>
-                <h2 class="password-title" id="passwordTitle">Uma surpresa secreta 💌</h2>
-                <p class="password-subtitle">Digite a senha para abrir sua cartinha.</p>
+                
+                <svg class="card-bow" viewBox="0 0 100 80">
+                    <g filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.2))">
+                        <circle cx="50" cy="40" r="14" fill="#ff0033" />
+                        <path d="M 40 40 Q 10 15 15 40 Q 10 65 40 40 Z" fill="#ff4d6d" />
+                        <path d="M 60 40 Q 90 15 85 40 Q 90 65 60 40 Z" fill="#ff4d6d" />
+                    </g>
+                </svg>
+
+                <h2 class="password-title">🔒 Área Secreta</h2>
+
+                <p class="password-subtitle">
+                    Peça a Senha para a criadora do site 💕
+                </p>
+
                 <div class="password-box">
-                    <input class="password-input" id="passwordInput" type="password" placeholder="Digite a senha" autocomplete="off" aria-label="Senha">
-                    <button class="btn" id="btnUnlock" type="button">
-                        <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
-                        Abrir surpresa
+                    <input type="password" id="passwordInput" class="password-input" placeholder="Digite a senha aqui..." autocomplete="off">
+                    <button class="btn" id="btnUnlock">
+                        <i class="fa-solid fa-key"></i> Entrar / Desbloquear
                     </button>
                 </div>
-                <p class="feedback-message" id="feedbackMessage" role="status" aria-live="polite"></p>
-                <button class="btn btn-back" id="btnBack" type="button">Voltar</button>
-            </div>
-        </section>
 
-        <section class="screen" id="screen3" aria-labelledby="letterTitle">
-            <div class="card">
-                <div class="card-bow" aria-hidden="true">🎀</div>
-                <h2 class="huge-rainbow-title" id="letterTitle">Uma cartinha para você 💖</h2>
-                <div class="casar-img-container">
-                    <img class="casar-img" src="Casar.png.jpg" alt="Uma lembrança especial">
-                </div>
-                <p class="animated-rainbow-text">Feita com muito carinho!</p>
-                <button class="envelope-box" id="envelopeToggle" type="button" aria-controls="letterText" aria-expanded="false">
-                    <span class="envelope-header">
-                        <span id="envelopeLabel">Abrir sua cartinha</span>
-                        <i class="fa-solid fa-chevron-down" id="arrowIcon" aria-hidden="true"></i>
-                    </span>
+                <div class="feedback-message" id="feedbackMessage"></div>
+
+                <button class="btn btn-back" id="btnBack">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar
                 </button>
-                <div class="letter-content" id="letterText" aria-live="polite">
-                    Oii, olha... você foi a pessoa escolhida para poder ter um cantinho exclusivo só para você aqui. Aliás, aí na sua cidade tá chovendo também? Aqui tá caindo um pé d'água, kkkkk.
 
-                    Mas mudando de assunto e indo direto ao ponto: você é uma pessoa bem malcriada por ter chegado até aqui no fim das telas, viu? Hahaha. Primeiramente, quero que saiba que este site é totalmente compartilhado e ele se comporta conforme o clique... ou seja, eu mandei especificamente para você. Esse site foi feito para se comportar exatamente do jeito que eu te vejo e para a gente resolver de vez aquela pendência que ficou em aberto e que a gente ainda não resolveu.
-
-                    Para começar, eu mesma detectei que foi o número 75 8859-1111 que entrou aqui, rapaz... Olha, Naty, eu sei que a gente teve um desentendimento recente, né? Mas eu também sei perfeitamente que a culpa de ter começado tudo aquilo foi minha. Só que ao mesmo tempo, você tá tendo exatamente o mesmo comportamento de antes: o de me ignorar e simplesmente não mandar nenhuma mensagem pra mim.
-
-                    Eu sei que eu não sou perfeita, especialmente quando escolho me expressar — por mais que todo mundo saiba que eu sou uma pessoa bem expressiva, né? Kkkkkkkk —, mas às vezes eu acabo viajando demais nas palavras e me embanando toda. Se fiz isso, me desculpa de coração por isso.
-
-                    Sabe, hoje não foi um dia legal pra mim. Como eu te contei em partes, eu acabei guardando muita coisa e não te contei tudo o que tava passando na cabeça. Mas o que eu mais quero é que a gente construa um laço forte, daqueles que não se abalam por qualquer bobeira ou qualquer vento que sopra. É super nítido que você tá mudando, mas às vezes eu sou uma pessoa muito insegura. E o pior é que, enquanto eu fico na minha insegurança, você fica toda cismadinha e com aquele seu orgulhinho. Só que eu não quero que você seja assim comigo, sabe? Você não precisa ficar o tempo todo disponível ou se cobrando por isso.
-
-                    Eu sei que tô parecendo super chata agora por estar falando todas essas coisas, mas é porque eu realmente não quero desperdiçar a chance que você me deu. Eu vi seus status ontem falando sobre "tirar o colete" para dar uma chance para alguém (olha, confesso que nem sei se era indireta pra mim ou não), mas eu quero te dizer bem na sua cara que eu não quero viver em montanha-russa nenhuma. Eu não quero instabilidade, eu quero algo sólido, firme e fixo.
-
-                    Eu te respeito muito, de verdade. Apesar de todas as dores e dos atritos, eu ainda continuo querendo te ver, sinto muita saudade de você. Espero do fundo do coração que você sinta o mesmo por mim. Por favor, não deixa isso passar em branco, não me ignore. Eu quero muito que você me conte como você se sente TAMBÉM, sem filtros.
-
-                    Gostaria muito de verdade que você não me desse aquele gelo de novo como fez na primeira vez. Eu sei que você tá pensando mil coisas aí na sua cabeça, que tá tudo um verdadeiro uó, né? Mas me desculpa por confundir sua mente desse jeito. Por favorzinho, não me responde seco... Eu quero muito ouvir a sua voz e ver você falar o que pensa também...
-                </div>
-                <div class="contact-followup" id="contactFollowup" aria-hidden="true">
-                    <p class="contact-prompt">Agora me conta: como você se sente?</p>
-                    <p>Quando quiser, me chama no WhatsApp:</p>
-                    <a class="phone-number-box" href="https://wa.me/5575982450070" target="_blank" rel="noopener noreferrer" aria-label="Conversar pelo WhatsApp com o número (75) 98245-0070">
-                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                        (75) 98245-0070
-                    </a>
-                </div>
             </div>
-        </section>
-    </main>
+        </div>
 
-<!-- Script de Lógica, Partículas e Transições -->
+        <!-- TELA 3: CARTA E FOTO CASAR -->
+        <div class="screen" id="screen3">
+            <div class="card">
+                
+                <svg class="card-bow" viewBox="0 0 100 80">
+                    <g filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.2))">
+                        <circle cx="50" cy="40" r="14" fill="#ff0033" />
+                        <path d="M 40 40 Q 10 15 15 40 Q 10 65 40 40 Z" fill="#ff4d6d" />
+                        <path d="M 40 40 Q 20 25 22 40 Q 20 55 40 40 Z" fill="#ff758f" />
+                        <path d="M 60 40 Q 90 15 85 40 Q 90 65 60 40 Z" fill="#ff4d6d" />
+                        <path d="M 60 40 Q 80 25 78 40 Q 80 55 60 40 Z" fill="#ff758f" />
+                        <path d="M 45 50 Q 30 75 20 70 Q 35 60 45 50 Z" fill="#c9184a" />
+                        <path d="M 55 50 Q 70 75 80 70 Q 65 60 55 50 Z" fill="#c9184a" />
+                    </g>
+                </svg>
+
+                <h1 class="huge-rainbow-title">✨ Um Cantinho Especial Pra Você ✨</h1>
+
+                <!-- Foto Casar -->
+                <div class="Casar-img-container">
+                    <img class="casar-img" src="Casar.png" alt="Foto Casar" onerror="this.src='https://placehold.co/600x300/ffb3c6/590d22?text=casar.png'">
+                </div>
+
+                <!-- Carta Interativa (Extensa e Natural) -->
+                <div class="envelope-box" id="envelopeToggle">
+                    <div class="envelope-header">
+                        <span>💌 Clique aqui para abrir a carta secreta...</span>
+                        <i class="fa-solid fa-chevron-down" id="arrowIcon"></i>
+                    </div>
+                    <div class="letter-content" id="letterText">
+Oii, olha... você foi a pessoa escolhida para poder ter um cantinho exclusivo só para você aqui. Aliás, aí na sua cidade tá chovendo também? Aqui tá caindo um pé d'água, kkkkk. 
+
+Mas mudando de assunto e indo direto ao ponto: você é uma pessoa bem malcriada por ter chegado até aqui no fim das telas, viu? Hahaha. Primeiramente, quero que saiba que este site é totalmente compartilhado e ele se comporta conforme o clique... ou seja, eu mandei especificamente para você. Esse site foi feito para se comportar exatamente do jeito que eu te vejo e para a gente resolver de vez aquela pendência que ficou em aberto e que a gente ainda não resolveu.
+
+Para começar, eu mesma detectei que foi o número 75 8859-1111 que entrou aqui, rapaz... Olha, Naty, sei que a gente teve um desentendimento recente, né? Mas eu também sei perfeitamente que a culpa de ter começado tudo aquilo foi minha. Só que ao mesmo tempo, você tá tendo exatamente o mesmo comportamento de antes: o de me ignorar e simplesmente não mandar nenhuma mensagem pra mim. 
+
+Eu sei que eu não sou perfeita, especialmente quando escolho me expressar — por mais que todo mundo saiba que eu sou uma pessoa bem expressiva, né? Kkkkkkkk —, mas às vezes eu acabo viajando demais nas palavras e me embanando toda. Se fiz isso, me desculpa de coração por isso. 
+
+Sabe, hoje não foi um dia legal pra minY. Como eu te contei em partes, eu acabei guardando muita coisa e não te contei tudo o que tava passando na cabeça. Mas o que eu mais quero é que a gente construa um laço forte, daqueles que não se abalam por qualquer bobeira ou qualquer vento que sopra. É super nítido que você tá mudando, mas às vezes eu sou uma pessoa muito insegura. E o pior é que, enquanto eu fico na minha insegurança, você fica toda cismadinha e com aquele seu orgulhinho. Só que eu não quero que você seja assim comigo, sabe? Você não precisa ficar o tempo todo disponível ou se cobrando por isso. 
+
+Eu sei que tô parecendo super chata agora por estar falando todas essas coisas, mas é porque eu realmente não quero desperdiçar a chance que você me deu. Eu vi seus status ontem falando sobre "tirar o colete" para dar uma chance para alguém (olha, confesso que nem sei se era indireta pra mim ou não), mas eu quero te dizer bem na sua cara que eu não quero viver em montanha-russa nenhuma. Eu não quero instabilidade, eu quero algo sólido, firme e fixo. 
+
+Eu te respeito muito, de verdade. Apesar de todas as dores e dos atritos, eu ainda continuo querendo te ver, sinto muita saudade de você. Espero do fundo do coração que você sinta o mesmo por mim. Por favor, não deixa isso passar em branco, não me ignore. Eu quero muito que você me conte como você se sente TAMBÉM, sem filtros. 
+
+Gostaria muito de verdade que você não me desse aquele gelo de novo como fez na primeira vez. Eu sei que você tá pensando mil coisas aí na sua cabeça, que tá tudo um verdadeiro uó, né? Mas me desculpa por confundir sua mente desse jeito. Por favorzinho, não me responde seco... Eu quero muito ouvir a sua voz e ver você falar o que pensa também...
+                    </div>
+                </div>
+
+                <!-- Frase logo após a carta -->
+                <div class="contact-prompt">
+                    fala comigo
+                </div>
+
+                <!-- Botão de WhatsApp direto -->
+                <a href="https://wa.me/557588591111" class="phone-number-box" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> (75) 8859-1111
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script de Lógica, Partículas e Transições -->
     <script>
         /* ===================================================
            1. PARTICULAS DE FUNDO
@@ -695,7 +748,7 @@
         });
 
         btnUnlock.addEventListener('click', checkPassword);
-        passwordInput.addEventListener('keydown', (e) => {
+        passwordInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') checkPassword();
         });
 
@@ -728,25 +781,13 @@
         const envelopeToggle = document.getElementById('envelopeToggle');
         const letterText = document.getElementById('letterText');
         const arrowIcon = document.getElementById('arrowIcon');
-        const envelopeLabel = document.getElementById('envelopeLabel');
-        const contactFollowup = document.getElementById('contactFollowup');
-        let hasOpenedLetter = false;
 
         envelopeToggle.addEventListener('click', () => {
             letterText.classList.toggle('open');
-            const isOpen = letterText.classList.contains('open');
-            envelopeToggle.setAttribute('aria-expanded', String(isOpen));
-            if (isOpen) {
-                hasOpenedLetter = true;
-                envelopeLabel.textContent = 'Fechar cartinha';
+            if (letterText.classList.contains('open')) {
                 arrowIcon.className = 'fa-solid fa-chevron-up';
             } else {
-                envelopeLabel.textContent = 'Abrir sua cartinha';
                 arrowIcon.className = 'fa-solid fa-chevron-down';
-                if (hasOpenedLetter) {
-                    contactFollowup.classList.add('visible');
-                    contactFollowup.setAttribute('aria-hidden', 'false');
-                }
             }
         });
 
